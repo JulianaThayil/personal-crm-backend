@@ -21,9 +21,13 @@ connection.once('open', () => {
 
 const birthdayRouter = require('./routes/birthday');
 const contactsRouter = require('./routes/contacts');
+const todoRouter = require('./routes/todo');
+
 
 app.use('/birthdays', birthdayRouter);
 app.use('/contacts', contactsRouter);
+app.use('/todo', todoRouter);
+
 
 // Step 3
 if (process.env.NODE_ENV === 'production') {
