@@ -25,6 +25,14 @@ const contactsRouter = require('./routes/contacts');
 app.use('/birthdays', birthdayRouter);
 app.use('/contacts', contactsRouter);
 
+// Step 3
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static( 'client/build' ));
+
+  app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'client', 'build', 'index.html')); // relative path
+  });
+}
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
