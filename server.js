@@ -22,12 +22,12 @@ connection.once('open', () => {
 const birthdayRouter = require('./routes/birthday');
 const contactsRouter = require('./routes/contacts');
 const todoRouter = require('./routes/todo');
-
+const debtRouter = require('./routes/debt');
 
 app.use('/birthdays', birthdayRouter);
 app.use('/contacts', contactsRouter);
 app.use('/todo', todoRouter);
-
+app.use('/debt', debtRouter);
 
 // Step 3
 if (process.env.NODE_ENV === 'production') {
